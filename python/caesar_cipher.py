@@ -15,15 +15,13 @@ def shift_letter(letter, shift_amount):
 
 def caesar_cipher(string, shift_amount):
     result = ""
-    
+
     # iterate through the string
     for i in string:
-        # if the character is a letter, use the shift_letter function to add the appropriate letter to result
-        if i.isalpha():
-            result += shift_letter(i, shift_amount)
-        # otherwise, just add the character as is to result
-        else:
-            result += i
+        # ternary expression: 
+        #...calls shift_letter on letter before adding to result...
+        #...otherwise, just add nonalpha character to result
+        result += shift_letter(i, shift_amount) if i.isalpha() else i
     
     return result
 

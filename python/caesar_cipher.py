@@ -14,17 +14,12 @@ def shift_letter(letter, shift_amount):
     
 
 def caesar_cipher(string, shift_amount):
-    result = ""
-
-    # iterate through the string
-    for i in string:
-        # ternary expression: 
-        #...calls shift_letter on letter before adding to result...
-        #...otherwise, just add nonalpha character to result
-        result += shift_letter(i, shift_amount) if i.isalpha() else i
+    # joins all the elements of the iterable into a single string.
+    # if the character i is alphabetic, apply the shift_letter function to i
+    # else, join unmodified character 
+    return ''.join(shift_letter(i, shift_amount) if i.isalpha() else i for i in string)
     
-    return result
-
+    
 print(caesar_cipher("Boy! What a string!", -5) == "Wjt! Rcvo v nomdib!")
 print(caesar_cipher("Hello zach168! Yes here.", 5) == "Mjqqt efhm168! Djx mjwj.")
 print(caesar_cipher("Hello Zach168! Yes here.", -5) == "Czggj Uvxc168! Tzn czmz.")
